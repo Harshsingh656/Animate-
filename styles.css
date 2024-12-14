@@ -1,0 +1,227 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #FAD02E, #F28D35, #D83367, #A530A4); /* Soft, colorful gradient */
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite; /* Subtle gradient animation */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Section Styles */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#header-section {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for the header */
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-section {
+    background-color: #FFFAF0; /* Soft yellowish background */
+}
+
+#effects-section {
+    background-color: #F8F8FF; /* Light blue background */
+}
+
+#footer-section {
+    background-color: #D8BFD8; /* Light purple background */
+    padding: 40px 20px;
+}
+
+/* Header Text */
+.apology-text h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #FF6347;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apology-text p {
+    font-size: 22px;
+    color: #444;
+}
+
+/* Shimmer Effect for Text */
+.shimmer {
+    background: linear-gradient(45deg, #ff6347, #d83367, #ff6347, #ff6347);
+    background-size: 300% 300%;
+    animation: shimmerAnimation 3s ease infinite;
+}
+
+/* Cat image container */
+.cat-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    animation: catMovement 2s ease-in-out infinite;
+}
+
+.cat-image {
+    width: 200px; /* Adjust size */
+    height: auto;
+    border-radius: 10px;
+    animation: blinkAnimation 2s infinite; /* Blink animation */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Heart Floating Effect */
+@keyframes heartFloating {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(1);
+    }
+}
+
+/* Add hearts to the page */
+.heart {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    font-size: 30px;
+    animation: heartFloating 3s infinite ease-in-out;
+    opacity: 0;
+}
+
+@keyframes bubbleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blinkAnimation {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95); /* Simulate blinking effect */
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating Particles */
+@keyframes perfumeParticleAnimation {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Particle explosion effect */
+@keyframes explosion {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(5);
+        opacity: 0;
+    }
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow interaction with other elements */
+    z-index: -1; /* Keep particles in the background */
+}
+
+/* Additional effects for when cat or speech bubble is hovered */
+.cat-container:hover .cat-image {
+    transform: scale(1.1); /* Slight zoom on hover */
+    animation: explosion 0.5s forwards;
+}
+
+/* Footer styles */
+#footer-section p {
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+}
+
+/* Particle Creation */
+.particle {
+    position: absolute;
+    font-size: 24px;
+    animation: perfumeParticleAnimation 5s linear infinite;
+}
+
+/* Sound Effect Trigger */
+#catImage:hover {
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .cat-image {
+        width: 150px;
+    }
+
+    .speech-bubble {
+        font-size: 20px;
+        padding: 12px 20px;
+    }
+
+    .apology-text h1 {
+        font-size: 32px;
+    }
+
+    .apology-text p {
+        font-size: 18px;
+    }
+
+    #about-section h2, #effects-section h2, #footer-section h2 {
+        font-size: 24px;
+    }
+
+    #about-section p, #effects-section p, #footer-section p {
+        font-size: 16px;
+    }
+}
